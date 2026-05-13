@@ -1,3 +1,36 @@
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
+
+-- Set the shell based on the operating system and available shells
+if vim.fn.has("win32") == 1 then
+  -- On Windows
+  if vim.fn.executable("pwsh") == 1 then
+    vim.opt.shell = "pwsh"
+  else
+    vim.opt.shell = "powershell"
+  end
+
+  vim.opt.shellcmdflag = "-NoLogo -NoProfile -Command"
+  vim.opt.shellquote = ""
+  vim.opt.shellxquote = ""
+else
+  -- On Linux/macOS (or anything else)
+  if vim.fn.executable("fish") == 1 then
+    vim.opt.shell = "fish" -- or the output of `which fish`
+  else
+    vim.opt.shell = "bash"
+  end
+end
+
+-- Custom comments for different file types
+vim.cmd([[
+  autocmd FileType lsl setlocal commentstring=//\ %s
+  autocmd FileType kscript setlocal commentstring=//\ %s
+]])
+
+vim.filetype.add({
+  extension = {
+    gmf = "matlab",
+  },
+})
