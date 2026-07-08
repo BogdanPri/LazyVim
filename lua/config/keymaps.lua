@@ -4,6 +4,7 @@
 
 -- Exit insert mode by pressing "jk"
 vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode", silent = true })
+vim.keymap.set("i", "йк", "<ESC>", { desc = "Exit insert mode", silent = true })
 
 -- Set `Ctrl+j` to accept Copilot suggestions
 vim.keymap.set("i", "<C-j>", function()
@@ -29,3 +30,12 @@ vim.keymap.set("i", "<C-l>", "copilot#Accept('<Right>')", {
   silent = true,
   desc = "Accept Copilot suggested word",
 })
+
+-- Add Russian langmap
+vim.opt.langmap =
+  "яq,вw,еe,рr,тt,ыy,уu,иi,оo,пp,ш[,щ]," ..
+  "аa,сs,дd,фf,гg,хh,йj,кk,лl," ..
+  "э#,зz,ьx,цc,жv,бb,нn,мm,ю`,ч=," ..
+  "ЯQ,ВW,ЕE,РR,ТT,ЫY,УU,ИI,ОO,ПP,Ш{,Щ}," ..
+  "АA,СS,ДD,ФF,ГG,ХH,ЙJ,КK,ЛL," ..
+  "Э~,ЗZ,ЬX,ЦC,ЖV,БB,НN,МM,Ч+"
