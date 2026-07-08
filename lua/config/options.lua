@@ -34,3 +34,13 @@ vim.filetype.add({
     gmf = "matlab",
   },
 })
+
+-- Set default tab width and indentation for specific file types
+vim.cmd([[
+  autocmd FileType lua setlocal tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd FileType matlab setlocal tabstop=4 shiftwidth=4 softtabstop=4
+]])
+
+-- Code formatting settings
+vim.g.autoformat = false -- Disable automatic formatting on save
