@@ -38,9 +38,23 @@ vim.filetype.add({
 -- Set default tab width and indentation for specific file types
 vim.cmd([[
   autocmd FileType lua setlocal tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd FileType cpp setlocal tabstop=2 shiftwidth=2 softtabstop=2
   autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd FileType matlab setlocal tabstop=4 shiftwidth=4 softtabstop=4
 ]])
 
 -- Code formatting settings
 vim.g.autoformat = false -- Disable automatic formatting on save
+vim.opt.conceallevel = 0 -- Disable concealment for better visibility of code
+
+-- VimTex settings for LaTeX
+vim.g.vimtex_quickfix_open_on_warning = false -- Don't open quickfix on warnings
+
+if vim.fn.executable("zathura") == 1 then
+  vim.g.vimtex_view_method = "zathura" -- Use Zathura as the PDF viewer if available
+else
+  vim.g.vimtex_view_method = "okular" -- Use Okular as the PDF viewer if Zathura is not available
+end
+
+vim.g.vimtex_compiler_progname = "nvr" -- Use Neovim remote for compilation 
+vim.g.tex_flavor = "latex" -- Set the TeX flavor to LaTeX
