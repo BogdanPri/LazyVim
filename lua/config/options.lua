@@ -53,7 +53,8 @@ vim.g.vimtex_quickfix_open_on_warning = false -- Don't open quickfix on warnings
 if vim.fn.executable("zathura") == 1 then
   vim.g.vimtex_view_method = "zathura" -- Use Zathura as the PDF viewer if available
 else
-  vim.g.vimtex_view_method = "okular" -- Use Okular as the PDF viewer if Zathura is not available
+  -- vim.g.vimtex_view_method = "okular" -- Use Okular as the PDF viewer if Zathura is not available
+  vim.g.vimtex_general_viewer = "okular" -- Use Okular as the PDF viewer if Zathura is not available
 end
 
 vim.g.vimtex_compiler_progname = "nvr" -- Use Neovim remote for compilation 
