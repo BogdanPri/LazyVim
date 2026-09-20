@@ -31,8 +31,9 @@ vim.cmd([[
 
 vim.filetype.add({
   extension = {
-    gmf = "matlab",
-    agc = "asm",
+    agc    = "asm",
+    gmf    = "gmat",
+    script = "gmat",
   },
 })
 
