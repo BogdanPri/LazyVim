@@ -6,6 +6,14 @@
 vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode", silent = true })
 vim.keymap.set("i", "йк", "<ESC>", { desc = "Exit insert mode", silent = true })
 
+vim.keymap.set({ "n", "v" }, "<leader>Ca", "<cmd>Calcium a<CR>", { desc = "Calcium append" })
+vim.keymap.set({ "n", "v" }, "<leader>Cr", "<cmd>Calcium r<CR>", { desc = "Calcium replace" })
+vim.keymap.set("n", "<leader>Cs", "<cmd>Calcium s<CR>", { desc = "Calcium scratchpad" })
+
+require("which-key").add({
+  { "<leader>C", group = "Calcium", icon = "󰆧", mode = { "n", "v" } },
+})
+
 -- Set `Ctrl+j` to accept Copilot suggestions
 -- vim.keymap.set("i", "<C-j>", function()
 --   if not vim.lsp.inline_completion.get() then
