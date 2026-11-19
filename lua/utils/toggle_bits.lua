@@ -91,7 +91,7 @@ end
 
 -- Normal mode: toggle one bit
 function M.normal()
-  vim.go.operatorfunc = "v:lua.require'config.toggle_bits'.operator"
+  vim.go.operatorfunc = "v:lua.require'utils.toggle_bits'.operator"
 
   -- g@l operates on one character and supports dot-repeat
   return "g@l"
